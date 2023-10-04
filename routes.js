@@ -5,7 +5,7 @@ const routes = express.Router();
 
 
 routes.get(`${apiVersion}/hello`, UsersController.message);
-
+routes.post(`${apiVersion}/register`, UsersController.createEmployee);
 
 
 export default routes;
