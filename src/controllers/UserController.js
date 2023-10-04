@@ -5,9 +5,9 @@ class UsersController {
   async message(req, res) {
     return res.status(200).json({ message: "Hello, Cognum!" });
   }
-  async Employee(req,res){
-    
+  async createEmployee(req,res){
 
+    
 
 
 
