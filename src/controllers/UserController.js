@@ -3,13 +3,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class UsersController {
-  
-  // Retorna uma mensagem de sucesso
+  // Esta função é uma rota que retorna uma mensagem de boas-vindas.
+  //Ela responde com um código de status HTTP 200 (OK) e um objeto JSON contendo a mensagem "Hello, Cognum!".
   async message(req, res) {
     return res.status(200).json({ message: "Hello, Cognum!" });
   }
-  
-  // Cria um novo funcionário no banco de dados
+
+  // Esta função cria um novo funcionário no banco de dados. Ela espera receber o nome e o cargo do funcionário no corpo da requisição (req.body).
+  //Antes de criar o funcionário, ela verifica se um funcionário com o mesmo nome já existe no banco de dados.
   async createEmployee(req, res) {
     try {
       const { emp_name, emp_role } = req.body;
@@ -35,8 +36,9 @@ class UsersController {
         .json({ message: `Erro ao criar o usuário: ${error.message}` });
     }
   }
-  
-  // Realiza o login do usuário
+
+  //Esta função é responsável pelo processo de login de um usuário. Ela espera receber o nome e o cargo do usuário no corpo da requisição (req.body). 
+  //Em seguida, verifica se existe um usuário com essas credenciais no banco de dados. 
   async Login(req, res) {
     try {
       const { emp_name, emp_role } = req.body;
@@ -53,8 +55,9 @@ class UsersController {
         .json({ message: `Erro ao fazer login: ${error.message}` });
     }
   }
-  
-  // Remove um usuário do banco de dados
+
+  //Esta função remove um usuário do banco de dados. Ela espera receber o ID do usuário no corpo da requisição (req.body). 
+  //Primeiro, ela tenta deletar o usuário com o ID fornecido. Se a operação for bem-sucedida, retorna um código de status HTTP 200 (OK) com a mensagem "Usuário deletado com sucesso!". 
   async removeUser(req, res) {
     try {
       const { id } = req.body;
@@ -72,8 +75,9 @@ class UsersController {
         .json({ message: `Erro ao remover usuário: ${error.message}` });
     }
   }
-  
-  // Altera o nome de um usuário
+
+  //Esta função altera o nome de um usuário. Ela espera receber o ID do usuário e o novo nome no corpo da requisição (req.body). 
+  //Primeiro, verifica se o usuário com o ID fornecido existe no banco de dados. Se não encontrar, retorna um código de status HTTP 400 (Bad Request) com a mensagem "Usuário não encontrado!". 
   async changeuserName(req, res) {
     try {
       const { id, use_name } = req.body;
@@ -90,7 +94,9 @@ class UsersController {
           },
         });
       }
-      return res.status(200).json({ message: "Nome do usuário atualizado com sucesso!" });
+      return res
+        .status(200)
+        .json({ message: "Nome do usuário atualizado com sucesso!" });
     } catch (error) {
       console.error(error);
       return res
