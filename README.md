@@ -5,6 +5,12 @@ Desafio 1: Implementação de uma API RESTful usando Express.js
 
 O código apresenta uma controladora de API em JavaScript que possui um método assíncrono chamado message. Esse método retorna uma resposta JSON com a mensagem "Hello, Cognum!" e um código de status 200. A instância da controladora é exportada no final para ser utilizada em outras partes do projeto, seguindo o padrão comum em frameworks web como o Express.js(que é o utilizado neste projeto).
 
+Desafio 2: Integração com Banco de Dados e Operações CRUD
+
+Escolha um banco de dados (MySQL, PostgreSQL, MongoDB).
+Implemente um CRUD para o recurso Employee (id, name, role).
+Suporta operações CREATE, READ, UPDATE, DELETE. 
+
 
 ## Bibliotecas Utilizadas
 
